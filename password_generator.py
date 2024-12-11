@@ -20,3 +20,26 @@ numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 symbols = ['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '+', '-',
             '?', ':', ';', ',', '.', '[', ']', '{', '}', '|', '_', '>', '<']
+
+# Prompting user input
+letters = int(input(
+    "How many letters would you like in your password?\n"
+))
+all_numbers = int(input("How many numbers?\n"))
+all_symbols = int(input("How many symbols\n"))
+
+# Create variable and assign to an empty string
+password = ""
+
+# Looping through letters, numbers, characters and adding the to the password
+for char in range(0, letters):
+    password += random.choice(upper_lower_letters)
+
+for char in range(0, all_symbols):
+    password += random.choice(symbols)
+
+for char in range(0, all_numbers):
+    password += random.choice(numbers)
+    password = ''.join(random.sample(password, len(password)))  # Shuffling password
+
+print(f"You newly generated password is: {password}")
